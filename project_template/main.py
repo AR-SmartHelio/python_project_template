@@ -2,10 +2,32 @@ import os
 import subprocess
 import click
 
+
+
 @click.command()
 @click.argument('path')
 def create_project_structure(path):
+    """
+    Creates the project structure for a new Python project.
+
+    Args:
+        path (str): The path to the base directory where the project structure will be created.
+
+    Raises:
+        ValueError: If the base directory does not exist and the user declines to create it.
+
+    Returns:
+        None
+    """
     base_path = os.path.abspath(path)
+
+    # Check if the directory exists
+    if not os.path.exists(base_path):
+        # If the directory does not exist, prompt the user for confirmation
+        confirm = input(f"The directory {base_path} does not exist. Would you like to create it? (y/n): ")
+        if confirm.lower() != 'y':
+            raise ValueError("Directory does not exist and user declined to create it. Exiting project setup.")
+
     os.makedirs(base_path, exist_ok=True)
 
     # Create directories

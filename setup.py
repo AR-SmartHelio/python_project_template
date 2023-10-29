@@ -17,5 +17,5 @@ setup(
     description="A tool to generate a Python project template",
     license="MIT",
     keywords="python project template generator",
-    url="https://github.com/yourusername/project_template_generator",  # GitHub repo URL or other URL
+    url="https://github.com/AR-SmartHelio/python_project_template",
 )
