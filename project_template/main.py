@@ -2,7 +2,6 @@ import os
 import subprocess
 import click
 
-
 @click.command()
 @click.argument('path')
 def create_project_structure(path):
@@ -44,16 +43,15 @@ SAMPLE_CONSTANT = "This is a sample constant. Update this with actual constants!
 
     # Create requirements.txt
     with open(os.path.join(base_path, 'requirements.txt'), 'w') as f:
-        f.write('numpy\npandas\nplotly\nflake8\nblack\n')
+        f.write('numpy\npandas\nplotly\nflake8\nblack\npytest\n')
 
-    # Set up venv
-    venv_path = os.path.join(base_path, 'venv')
-    subprocess.run(['python', '-m', 'venv', venv_path])
-
-    # Install required packages to venv
-    pip_path = os.path.join(venv_path, 'bin', 'pip')
-    requirements_path = os.path.join(base_path, 'requirements.txt')
-    subprocess.run([pip_path, 'install', '-r', requirements_path])
+    # Generate a sample test in the tests directory
+    test_content = """
+def test_sample():
+    assert True, "Sample test. Please replace with your own tests!"
+"""
+    with open(os.path.join(base_path, 'tests', 'test_sample.py'), 'w') as f:
+        f.write(test_content)
 
     # Initialize git
     subprocess.run(['git', 'init'], cwd=base_path)
