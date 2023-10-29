@@ -48,7 +48,7 @@ SAMPLE_CONSTANT = "This is a sample constant. Update this with actual constants!
 
     # Set up venv
     venv_path = os.path.join(base_path, 'venv')
-    subprocess.run(['python3.10', '-m', 'venv', venv_path])
+    subprocess.run(['python', '-m', 'venv', venv_path])
 
     # Install required packages to venv
     pip_path = os.path.join(venv_path, 'bin', 'pip')
