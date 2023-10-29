@@ -5,4 +5,5 @@ This tool helps in setting up a new Python project with a specific directory str
 ## Installation
 
 ```bash
-pip install project_template_generator
+pip install git+https://github.com/AR-SmartHelio/python_project_template.git
+
